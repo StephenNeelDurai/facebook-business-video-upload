@@ -1,0 +1,33 @@
+{
+  "name": "facebook-business-video-upload",
+  "version": "1.0.0",
+  "description": "Helping to upload video in facebook ad manager",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephenNeelDurai/facebook-business-video-upload.git"
+  },
+  "keywords": [
+    "['facebook'",
+    "'video'",
+    "'upload'",
+    "'nodejs']"
+  ],
+  "author": {
+    "name": "StephenNeelDurai",
+    "email": "leadsstephen@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StephenNeelDurai/facebook-business-video-upload/issues",
+    "email": "leadsstephen@gmail.com"
+
+  },
+  "homepage": "https://github.com/StephenNeelDurai/facebook-business-video-upload#readme"
+}
