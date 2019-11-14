@@ -27,7 +27,11 @@
   "bugs": {
     "url": "https://github.com/StephenNeelDurai/facebook-business-video-upload/issues",
     "email": "leadsstephen@gmail.com"
-
   },
-  "homepage": "https://github.com/StephenNeelDurai/facebook-business-video-upload#readme"
+  "homepage": "https://github.com/StephenNeelDurai/facebook-business-video-upload#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "stream-to-promise": "2.2.0"
+  }
 }
