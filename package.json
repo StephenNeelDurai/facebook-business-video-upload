@@ -1,6 +1,6 @@
 {
   "name": "facebook-business-video-upload",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helping to upload video in facebook ad manager",
   "main": "index.js",
   "directories": {
@@ -30,8 +30,8 @@
   },
   "homepage": "https://github.com/StephenNeelDurai/facebook-business-video-upload#readme",
   "dependencies": {
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5",
+    "request": "2.88.0",
+    "request-promise": "4.2.5",
     "stream-to-promise": "2.2.0"
   }
 }
