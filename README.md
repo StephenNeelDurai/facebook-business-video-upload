@@ -1,10 +1,10 @@
 # facebook-business-video-upload
 ##### Helping to upload video in facebook ad manager.
 ## Usage
-
+# Video upload
 ```js
 const fs = require('fs');
-const uploadEngine = require('facebook-business-video-upload');
+const uploadEngine = require('facebook-business-video-upload').video;
  
 const options = {
   token: "TOKEN",
