@@ -1,6 +1,6 @@
 {
   "name": "facebook-business-video-upload",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "Helping to upload video and image in facebook ad manager",
   "main": "index.js",
   "directories": {
