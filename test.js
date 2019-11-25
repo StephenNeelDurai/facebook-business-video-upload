@@ -10,14 +10,14 @@ let options = {
 // path for storing logs
 let retryObj = {status: false, path: null, uniqId: null};
 
-let uploadCacheFilePath = path.join(__dirname, 'cache'); // path for storing upload data cache
-fs.readdir(uploadCacheFilePath, function (err, files) {
+let uploadCacheFilePath = path.join(__dirname, 'cache'); // path for storing uploading data cache
+fs.readdir(uploadCacheFilePath, function (err, files) { // reading dir to check any process already pending in cache
     console.log("\n Pending cache list", files);
     //handling error
     if (err) {
         return console.log('Unable to scan directory: ' + err);
     }
-    if (files && files.length) {
+    if (files && files.length) { // If any file exist we should retry
         files.forEach(function (file) {
             let logFilePath = path.join(uploadCacheFilePath,file);
             console.log("\n\n ",logFilePath);
@@ -54,9 +54,10 @@ fs.readdir(uploadCacheFilePath, function (err, files) {
             // stop process for testing retry
             process.exit()
         }, 40);
-        retryObj.path = `${uploadCacheFilePath}/${Date.now()}.txt`
+        retryObj.status = false;
+        retryObj.path = `${uploadCacheFilePath}/${Date.now()}.txt`;
         retryObj.uniqId = 7;
-        uploadWithRetry(options, retryObj)
+        uploadWithRetry(options, retryObj) // uploading new file and will stop within 40 ms for testing...
     }
 });
 
@@ -64,9 +65,8 @@ function checkValidRetryData(data) {
     return data && data.args && data.args.token && data.args.id && data.args.stream && data.ids && data.start_offset && data.end_offset;
 }
 
-function uploadWithRetry() {
+function uploadWithRetry(options, retryObj) {
     console.log("\n Uploading With log...");
-    retryObj.status = false;
     video(options, retryObj) // retryObj status : false  and path : '/log.txt' to store log
         .then((res) => {
             console.log(res);
