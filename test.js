@@ -2,14 +2,14 @@ let fs = require('fs');
 let video = require('./lib/engine.js');
 let filePath = "/home/neel/WebstormProjects/test/testFiles/testVideo1.mp4";
 let options = {
-    token: '1334',
-    id: '523423',
+    token: '123',
+    id: '321',
     stream: filePath
 };
+// path for storing logs
 let retryPath = '/home/neel/WebstormProjects/npmModules/facebook-business-video-upload/test.txt';
 let retryObj = {status: false, path: retryPath};
-// video(options) //
-let reUpload = 0;
+let reUpload = 0; //
 
 if (reUpload) {
     fs.readFile(retryPath, (err, res) => {
@@ -37,10 +37,10 @@ if (reUpload) {
     })
 
 } else {
-    setTimeout(()=>{
-        // stop process for testing retry
-        process.exit()
-    },40)
+    // setTimeout(()=>{
+    //     // stop process for testing retry
+    //     process.exit()
+    // },40)
     uploadWithRetry(options, retryObj)
 
     // options.stream = fs.createReadStream(filePath);
@@ -52,8 +52,8 @@ function checkValidRetryData(data) {
 }
 
 function uploadWithRetry() {
-    console.log("uploading With Retry false");
-    video(options, retryObj) //
+    console.log("Uploading With Retry log");
+    video(options, retryObj) // retryObj status : false  and path : '/log.txt' to store log
         .then((res) => {
             console.log(res);
         })
@@ -63,18 +63,24 @@ function uploadWithRetry() {
 }
 
 function retry(options, retryObj) {
-    console.log("uploading With Retry true");
-    video(options, retryObj) //
+    console.log("Retrying With Retry true");
+    video(options, retryObj) // // retryObj status : true  and path : '/log.txt' to store log and resume upload
         .then((res) => {
             console.log(res);
+        })
+        .catch(err => {
+            console.log("Error :", err);
         });
 }
 
 
 function normalUpload() {
-    console.log("uploading normal");
+    console.log("Uploading normal");
     video(options) //
         .then((res) => {
             console.log(res);
+        })
+        .catch(err => {
+            console.log("Error :", err);
         });
 }
