@@ -9,7 +9,6 @@ let options = {
 };
 // path for storing logs
 let retryObj = {status: false, path: null, uniqId: null};
-let resumeUpload = 0; //
 
 let uploadCacheFilePath = path.join(__dirname, 'cache'); // path for storing upload data cache
 fs.readdir(uploadCacheFilePath, function (err, files) {
@@ -50,7 +49,7 @@ fs.readdir(uploadCacheFilePath, function (err, files) {
         })
 
     } else {
-        console.log("\n No pending files to upload. Uploading New");
+        console.log("\n No pending files to upload. Uploading New Video...");
         setTimeout(() => {
             // stop process for testing retry
             process.exit()
@@ -66,7 +65,8 @@ function checkValidRetryData(data) {
 }
 
 function uploadWithRetry() {
-    console.log("Uploading With log...");
+    console.log("\n Uploading With log...");
+    retryObj.status = false;
     video(options, retryObj) // retryObj status : false  and path : '/log.txt' to store log
         .then((res) => {
             console.log(res);
