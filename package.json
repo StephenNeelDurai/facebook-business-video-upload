@@ -1,6 +1,6 @@
 {
   "name": "facebook-business-video-upload",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Helping to upload video and image in facebook ad manager",
   "main": "index.js",
   "directories": {
@@ -14,10 +14,12 @@
     "url": "git+https://github.com/StephenNeelDurai/facebook-business-video-upload.git"
   },
   "keywords": [
-    "['facebook'",
-    "'video'",
-    "'upload'",
-    "'nodejs']"
+    "facebook",
+    "video",
+    "upload",
+    "nodejs",
+    "business",
+    "image"
   ],
   "author": {
     "name": "StephenNeelDurai",
