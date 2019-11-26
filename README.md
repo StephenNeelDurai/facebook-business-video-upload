@@ -70,16 +70,17 @@ fs.readdir(uploadCacheFilePath, function (err, files) { // Reading dir to check 
                     let result = JSON.parse(response.toString()); // Parse data from cache.
                     if (checkValidRetryData(result)) { // Check any data missing for resume upload.
                     const options = {
-                      token: result.token,
-                      id: result.id, // page_id or user_id or event_id or group_id 
-                      stream: result.stream, // Video file path, note: direct path only work if you give retry options!
-                      title: result.title,
-                      description: result.description
+                      token: result.args.token,
+                      id: result.args.id, // page_id or user_id or event_id or group_id 
+                      stream: result.args.stream // Video file path, note: direct path only work if you give retry options!
                     };
                     let retryObj = {
                      status: true, // It will true for retry this cache file.
                      path: readCacheFile, // Uniq file with dir path for store the cache data about your video upload.
-                     uniqId: result.uniqId // You can pass any uniq data or json object about this video file. ex.video uniq id from db 
+                     uniqId: result.uniqId, // You can pass any uniq data or json object about this video file. ex.video uniq id from db
+                     ids : result.ids,
+                     start_offset : result.start_offset,
+                     end_offset : result.end_offset
                     };
                      videoUploadEngine(options, retryObj)
                              .then((response) => {
